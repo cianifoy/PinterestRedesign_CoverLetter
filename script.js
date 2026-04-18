@@ -250,6 +250,10 @@ const pins = [
 
 const feed = document.querySelector("#feed");
 const layoutToggle = document.querySelector("#layoutToggle");
+const feedView = document.querySelector("#feedView");
+const createView = document.querySelector("#createView");
+const createButton = document.querySelector(".create-fab");
+const createBack = document.querySelector("#createBack");
 const MODULAR_ROW_SPAN = 14;
 
 pins.forEach((pin) => {
@@ -310,4 +314,20 @@ setLayoutMode(currentMode);
 layoutToggle.addEventListener("click", () => {
   currentMode = currentMode === "modular" ? "masonry" : "modular";
   setLayoutMode(currentMode);
+});
+
+const setAppView = (view) => {
+  const isCreateView = view === "create";
+  feedView.classList.toggle("is-active", !isCreateView);
+  createView.classList.toggle("is-active", isCreateView);
+  feedView.setAttribute("aria-hidden", String(isCreateView));
+  createView.setAttribute("aria-hidden", String(!isCreateView));
+};
+
+createButton.addEventListener("click", () => {
+  setAppView("create");
+});
+
+createBack.addEventListener("click", () => {
+  setAppView("feed");
 });

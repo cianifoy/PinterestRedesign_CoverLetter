@@ -14,6 +14,7 @@
   </head>
   <body>
     <div class="app-shell">
+      <div class="app-view is-active" id="feedView">
       <header class="topbar">
         <div class="brand-group">
           <div class="brand-mark" aria-label="Pinterest logo">
@@ -124,7 +125,178 @@
         <section class="modular-grid" id="feed"></section>
       </main>
 
+      <button class="create-fab" type="button">Create</button>
       <button class="help-fab" aria-label="Help">?</button>
+      </div>
+
+      <div class="app-view create-view" id="createView" aria-hidden="true">
+        <header class="create-topbar">
+          <div class="create-brand">
+            <div class="create-brand-copy">
+              <button class="create-nav-back" id="createBack" type="button" aria-label="Back to home feed">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14.7 6.7a1 1 0 0 1 0 1.4L10.8 12l3.9 3.9a1 1 0 1 1-1.4 1.4l-4.6-4.6a1 1 0 0 1 0-1.4l4.6-4.6a1 1 0 0 1 1.4 0Z"></path>
+                </svg>
+                <span>Back</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="create-toolbar">
+            <button class="create-profile-pill" type="button">
+              <img src="./Images/Profile.jpeg" alt="Profile" />
+              <span class="create-profile-copy">
+                <strong>Ciani Foy</strong>
+                <small>Ciani Foy's profile</small>
+              </span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 0 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4Z"></path>
+              </svg>
+            </button>
+
+            <div class="icon-row">
+              <button class="round-icon" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="10.5" cy="10.5" r="6.75"></circle>
+                  <path d="M15.5 15.5 20 20"></path>
+                </svg>
+              </button>
+              <button class="round-icon has-badge" aria-label="Notifications">
+                <span class="badge">8</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 4.5a4.5 4.5 0 0 0-4.5 4.5v3.1c0 .85-.29 1.67-.82 2.33L5.2 16.2h13.6l-1.48-1.77a3.62 3.62 0 0 1-.82-2.33V9A4.5 4.5 0 0 0 12 4.5Z"></path>
+                  <path d="M10.2 18a1.8 1.8 0 0 0 3.6 0"></path>
+                </svg>
+              </button>
+              <button class="round-icon" aria-label="Messages">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 4.5c-4.14 0-7.5 2.96-7.5 6.6 0 2.06 1.08 3.9 2.78 5.11L6.9 19.5l3.15-1.73c.62.14 1.27.23 1.95.23 4.14 0 7.5-2.96 7.5-6.6s-3.36-6.9-7.5-6.9Z"></path>
+                  <circle cx="9" cy="11.3" r="1"></circle>
+                  <circle cx="12" cy="11.3" r="1"></circle>
+                  <circle cx="15" cy="11.3" r="1"></circle>
+                </svg>
+              </button>
+              <button class="round-icon" aria-label="Updates">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.5 11.5V9.6c0-.93.76-1.68 1.7-1.68h3.3v8.16H6.2c-.94 0-1.7-.76-1.7-1.69V11.5Z"></path>
+                  <path d="M9.5 8.7 16.8 6v12l-7.3-2.7"></path>
+                  <path d="M18.8 9.1c.88.77 1.4 1.9 1.4 3.09 0 1.2-.52 2.32-1.4 3.09"></path>
+                </svg>
+              </button>
+            </div>
+
+            <button class="mini-avatar" type="button" aria-label="Account">
+              <img src="./Images/Profile.jpeg" alt="Account" />
+            </button>
+            <button class="caret-only" type="button" aria-label="Open account menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 0 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4Z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="create-layout">
+          <aside class="drafts-rail">
+            <div class="drafts-head">
+              <h2>Pin drafts</h2>
+              <button class="collapse-btn" type="button" aria-label="Collapse drafts">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14.7 6.7a1 1 0 0 1 0 1.4L10.8 12l3.9 3.9a1 1 0 1 1-1.4 1.4l-4.6-4.6a1 1 0 0 1 0-1.4l4.6-4.6a1 1 0 0 1 1.4 0Z"></path>
+                </svg>
+              </button>
+            </div>
+            <button class="drafts-create" type="button">Create new</button>
+          </aside>
+
+          <main class="create-main">
+            <div class="create-heading">
+              <h1>Create Pin</h1>
+              <p>Working on: Your profile</p>
+            </div>
+
+            <div class="create-canvas">
+              <section class="upload-column">
+                <div class="upload-dropzone" tabindex="0">
+                  <div class="upload-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 16V8"></path>
+                      <path d="m8.8 11.2 3.2-3.2 3.2 3.2"></path>
+                    </svg>
+                  </div>
+                  <p>Choose a file or drag and drop it here</p>
+                  <small>We recommend using high quality .jpg files less than 20 MB or .mp4 files less than 200 MB.</small>
+                </div>
+                <button class="url-save" type="button">Save from URL</button>
+              </section>
+
+              <section class="fields-column">
+                <label class="field">
+                  <span>Title</span>
+                  <input type="text" placeholder="Add a title" />
+                </label>
+                <label class="field">
+                  <span>Description</span>
+                  <textarea rows="4" placeholder="Add a detailed description"></textarea>
+                </label>
+                <section class="alttext-panel" aria-labelledby="altTextHeading">
+                  <div class="alttext-head">
+                    <div class="alttext-title-row">
+                      <h2 id="altTextHeading">Alt text</h2>
+                      <span class="required-badge">Required</span>
+                      <button class="alttext-help" type="button" aria-label="Alt text help">?</button>
+                    </div>
+                  </div>
+                  <label class="sr-only" for="altTextInput">Alt text</label>
+                  <textarea
+                    id="altTextInput"
+                    class="alttext-input"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Describe your image so screen reader users and people with visual impairments can understand your pin"
+                  ></textarea>
+                </section>
+                <label class="field">
+                  <span>Link</span>
+                  <input type="text" placeholder="Add a link" />
+                </label>
+                <label class="field">
+                  <span>Board</span>
+                  <div class="field-select">
+                    <span>Choose a board</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 0 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4Z"></path>
+                    </svg>
+                  </div>
+                </label>
+                <label class="field">
+                  <span>Tagged topics (0)</span>
+                  <input type="text" placeholder="Search for a tag" />
+                </label>
+                <div class="field field-inline">
+                  <span>Tag Products</span>
+                  <button class="disabled-chip" type="button">Add products</button>
+                </div>
+                <div class="publish-row">
+                  <button class="switch" type="button" aria-pressed="false">
+                    <span></span>
+                  </button>
+                  <span>Publish at a later date</span>
+                </div>
+                <button class="more-options" type="button">
+                  <span>More options</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.7 9.3a1 1 0 0 1 1.4 0L12 13.2l3.9-3.9a1 1 0 0 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0L6.7 10.7a1 1 0 0 1 0-1.4Z"></path>
+                  </svg>
+                </button>
+              </section>
+            </div>
+          </main>
+        </div>
+
+        <button class="help-fab help-fab--create" aria-label="Help">?</button>
+      </div>
     </div>
 
     <script src="./script.js"></script>
